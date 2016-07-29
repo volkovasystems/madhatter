@@ -1,0 +1,30 @@
+{
+  "name": "madhatter",
+  "version": "0.0.0",
+  "description": "Double check ECMAscript syntax error.",
+  "main": "madhatter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkovasystems/madhatter.git"
+  },
+  "keywords": [
+    "syntax-error",
+    "esprima",
+    "madhatter",
+    "syntax-checker"
+  ],
+  "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/volkovasystems/madhatter/issues"
+  },
+  "homepage": "https://github.com/volkovasystems/madhatter#readme",
+  "dependencies": {
+    "asea": "0.0.3",
+    "esprima": "^2.7.2",
+    "syntax-error": "^1.1.6"
+  }
+}
