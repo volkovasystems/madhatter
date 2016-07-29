@@ -123,3 +123,7 @@ var madhatter = function madhatter( script ){
 	//: This is erroneous.
 	return true;
 };
+
+if( asea.server ){
+	module.exports = madhatter;
+}
