@@ -42,20 +42,20 @@
 	@end-module-configuration
 
 	@module-documentation:
+		Checks for syntax error and unused variable.
+
 		Returns false if there's no error.
 
 		Returns an error or true if erroneous.
 	@end-module-documentation
-
-	@example:
-	@end-example
 
 	@include:
 		{
 			"asea": "asea",
 			"fs": "fs",
 			"esprima": "esprima",
-			"check": "syntax-error"
+			"check": "syntax-error",
+			"unused": "unused"
 		}
 	@end-include
 */
@@ -65,6 +65,7 @@ if( typeof window == "undefined" ){
 	var fs = require( "fs" );
 	var esprima = require( "esprima" );
 	var check = require( "syntax-error" );
+	var unused = require( "unused" );
 }
 
 if( typeof window != "undefined" &&
@@ -117,7 +118,29 @@ var madhatter = function madhatter( script ){
 			return error;
 		}
 
-		return check( script ) || false;
+		var error =  check( script );;
+
+		if( error ){
+			return error;
+		}
+
+		var unusedVariable = unused( script )
+			.filter( function onEachUnused( variable ){
+				return !variable.param;
+			} )
+			.map( function onEachUnused( variable ){
+				return [ variable.name,
+					"(@line,@column)"
+						.replace( "@line", variable.loc.line )
+						.replace( "@column", variable.loc.column )
+				].join( ":" );
+			} );
+
+		if( unusedVariable.length ){
+			return new Error( "unused variable, " + unusedVariable.join( ", " ) );
+		}
+
+		return false;
 	}
 
 	//: This is erroneous.

@@ -1,6 +1,6 @@
 {
   "name": "madhatter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
   "authors": [
