@@ -1,6 +1,6 @@
 {
   "name": "madhatter",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
   "authors": [
@@ -22,7 +22,7 @@
     "tests"
   ],
   "dependencies": {
-    "esprima": "^2.0.0",
-    "asea": "^0.0.3"
+    "asea": "^0.1.2",
+    "esprima": "^2.0.0"
   }
 }
