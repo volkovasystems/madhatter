@@ -1,6 +1,6 @@
 {
   "name": "madhatter",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
   "scripts": {
@@ -17,14 +17,17 @@
     "syntax-checker"
   ],
   "author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+  "contributors": [
+    "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/volkovasystems/madhatter/issues"
   },
   "homepage": "https://github.com/volkovasystems/madhatter#readme",
   "dependencies": {
-    "asea": "^0.1.2",
-    "esprima": "^3.0.0",
+    "asea": "^0.4.0",
+    "esprima": "^3.1.2",
     "syntax-error": "^1.1.6",
     "unused": "^0.2.2"
   }

@@ -34,6 +34,9 @@
 			"file": "madhatter.js",
 			"module": "madhatter",
 			"author": "Richeve S. Bebedor",
+			"contributors": [
+				"John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
+			],
 			"eMail": "richeve.bebedor@gmail.com",
 			"repository": "https://github.com/volkovasystems/madhatter.git",
 			"test": "madhatter-test.js",
@@ -60,27 +63,13 @@
 	@end-include
 */
 
-if( typeof window == "undefined" ){
-	var asea = require( "asea" );
-	var fs = require( "fs" );
-	var esprima = require( "esprima" );
-	var check = require( "syntax-error" );
-	var unused = require( "unused" );
-}
+const asea = require( "asea" );
+const fs = require( "fs" );
+const esprima = require( "esprima" );
+const check = require( "syntax-error" );
+const unused = require( "unused" );
 
-if( typeof window != "undefined" &&
-	!( "asea" in window ) )
-{
-	throw new Error( "asea is not defined" );
-}
-
-if( asea.client &&
-	!( "esprima" in window ) )
-{
-	throw new Error( "esprima is not defined" );
-}
-
-var madhatter = function madhatter( script ){
+const madhatter = function madhatter( script ){
 	/*;
 		@meta-configuration:
 			{
@@ -118,13 +107,13 @@ var madhatter = function madhatter( script ){
 			return error;
 		}
 
-		var error =  check( script );;
+		let error =  check( script );;
 
 		if( error ){
 			return error;
 		}
 
-		var unusedVariable = unused( script )
+		let unusedVariable = unused( script )
 			.filter( function onEachUnused( variable ){
 				return !variable.param;
 			} )
@@ -147,6 +136,4 @@ var madhatter = function madhatter( script ){
 	return true;
 };
 
-if( asea.server ){
-	module.exports = madhatter;
-}
+module.exports = madhatter;
