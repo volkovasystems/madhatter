@@ -1,9 +1,12 @@
 {
   "name": "madhatter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
+  "support": "madhatter.support.js",
+  "deploy": "madhatter.deploy.js",
   "scripts": {
+    "build": "babel madhatter.js -o madhatter.support.js && webpack",
     "test": "mocha madhatter-test.js"
   },
   "repository": {
@@ -27,6 +30,7 @@
   "homepage": "https://github.com/volkovasystems/madhatter#readme",
   "dependencies": {
     "asea": "^0.6.0",
+    "babel-runtime": "^6.20.0",
     "esprima": "^3.1.3",
     "syntax-error": "^1.1.6",
     "unused": "^0.2.2"
@@ -36,7 +40,7 @@
     "babel-core": "^6.21.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
-    "source-map-loader": "^0.1.5",
+    "source-map-loader": "^0.1.6",
     "webpack": "^1.14.0"
   }
 }

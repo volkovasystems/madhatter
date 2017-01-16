@@ -1,8 +1,10 @@
 {
   "name": "madhatter",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
+  "support": "madhatter.support.js",
+  "deploy": "madhatter.deploy.js",
   "authors": [
     "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
     "John Lenon Maghanoy <johnlenonmaghanoy@gmail.com>"
@@ -23,7 +25,6 @@
     "tests"
   ],
   "dependencies": {
-    "asea": "^0.6.0",
-    "esprima": "^2.0.0"
+    "asea": "^0.6.0"
   }
 }

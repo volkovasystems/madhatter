@@ -64,10 +64,13 @@
 */
 
 const asea = require( "asea" );
-const fs = require( "fs" );
 const esprima = require( "esprima" );
-const check = require( "syntax-error" );
-const unused = require( "unused" );
+
+if( asea.SERVER ){
+	const check = require( "syntax-error" );
+	const fs = require( "fs" );
+	const unused = require( "unused" );
+}
 
 const madhatter = function madhatter( script ){
 	/*;
@@ -107,7 +110,7 @@ const madhatter = function madhatter( script ){
 			return error;
 		}
 
-		let error =  check( script );;
+		let error =  check( script );
 
 		if( error ){
 			return error;
@@ -118,15 +121,13 @@ const madhatter = function madhatter( script ){
 				return !variable.param;
 			} )
 			.map( function onEachUnused( variable ){
-				return [ variable.name,
-					"(@line,@column)"
-						.replace( "@line", variable.loc.line )
-						.replace( "@column", variable.loc.column )
-				].join( ":" );
+				let { name, loc } = variable;
+
+				return `${ name }:( ${ loc.line }, ${ loc.column } )`;
 			} );
 
 		if( unusedVariable.length ){
-			return new Error( "unused variable, " + unusedVariable.join( ", " ) );
+			return new Error( `error unused variable, ${ unusedVariable.join( ", " ) }, ${ script }` );
 		}
 
 		return false;
