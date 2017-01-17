@@ -1,3 +1,5 @@
+"use strict";
+
 const madhatter = require( "./madhatter.js" );
 
-console.log( madhatter( 'var me = "jl";' ) )
+madhatter( 'var me = "jl";' );
