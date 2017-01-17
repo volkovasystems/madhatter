@@ -66,7 +66,7 @@
 const asea = require( "asea" );
 const esprima = require( "esprima" );
 
-if( asea.SERVER ){
+if( asea.server ){
 	const check = require( "syntax-error" );
 	const fs = require( "fs" );
 	const unused = require( "unused" );
