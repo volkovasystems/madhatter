@@ -6,7 +6,7 @@
   "support": "madhatter.support.js",
   "deploy": "madhatter.deploy.js",
   "scripts": {
-    "build": "babel madhatter.js -o madhatter.support.js && webpack",
+    "build": "gulp && babel madhatter.support.js -o madhatter.support.js && webpack",
     "test": "mocha madhatter-test.js"
   },
   "repository": {
@@ -40,6 +40,12 @@
     "babel-core": "^6.21.0",
     "babel-plugin-transform-runtime": "^6.15.0",
     "babel-preset-latest": "^6.16.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-debug": "^3.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
     "source-map-loader": "^0.1.6",
     "webpack": "^1.14.0"
   }

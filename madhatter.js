@@ -66,11 +66,11 @@
 const asea = require( "asea" );
 const esprima = require( "esprima" );
 
-if( asea.server ){
-	const check = require( "syntax-error" );
-	const fs = require( "fs" );
-	const unused = require( "unused" );
-}
+//: @server:
+const check = require( "syntax-error" );
+const fs = require( "fs" );
+const unused = require( "unused" );
+//: @end-server
 
 const madhatter = function madhatter( script ){
 	/*;
