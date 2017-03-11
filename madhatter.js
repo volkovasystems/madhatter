@@ -55,8 +55,8 @@
 	@include:
 		{
 			"asea": "asea",
-			"fs": "fs",
 			"esprima": "esprima",
+			"lire": "lire",
 			"check": "syntax-error",
 			"unused": "unused"
 		}
@@ -68,9 +68,11 @@ const esprima = require( "esprima" );
 
 //: @server:
 const check = require( "syntax-error" );
-const fs = require( "fs" );
+const lire = require( "lire" );
 const unused = require( "unused" );
 //: @end-server
+
+const FILE_PATH_PATTERN = /^(\.*\~*\/*[a-zA-Z0-9\_\-\.\~]+)+(\.[a-zA-Z0-9\_\-]+)+$/;
 
 const madhatter = function madhatter( script ){
 	/*;
@@ -86,34 +88,32 @@ const madhatter = function madhatter( script ){
 			esprima.parse( script );
 
 		}catch( error ){
-			return error;
+			return new Error( `parse error, ${ error.stack }` );
 		}
 
 		return false;
 
 	}else if( asea.server ){
-		if( ( /^(\.*\~*\/*[a-zA-Z0-9\_\-\.\~]+)+(\.[a-zA-Z0-9\_\-]+)+$/ ).test( script ) ){
+		if( FILE_PATH_PATTERN.test( script ) ){
 			try{
-				fs.accessSync( script );
+				script = lire( script, true );
 
 			}catch( error ){
-				return error;
+				return new Error( `cannot read script file, ${ error.stack }` );
 			}
-
-			script = fs.readFileSync( script, "utf8" );
 		}
 
 		try{
 			esprima.parse( script );
 
 		}catch( error ){
-			return error;
+			return new Error( `parse error, ${ error.stack }` );
 		}
 
-		let error =  check( script );
+		let error = check( script );
 
 		if( error ){
-			return error;
+			return new Error( `syntax error, ${ error }` );
 		}
 
 		let unusedVariable = unused( script )

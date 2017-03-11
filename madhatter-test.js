@@ -2,4 +2,4 @@
 
 const madhatter = require( "./madhatter.js" );
 
-madhatter( 'var me = "jl";' );
+console.log( madhatter( 'var me = "jl";' ) );
