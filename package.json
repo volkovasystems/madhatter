@@ -1,10 +1,11 @@
 {
   "name": "madhatter",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Double check ECMAscript syntax error.",
   "main": "madhatter.js",
   "support": "madhatter.support.js",
   "deploy": "madhatter.deploy.js",
+  "browser": "madhatter.deploy.js",
   "scripts": {
     "build": "gulp && babel madhatter.support.js --out-file madhatter.support.js --source-maps && webpack --progress --display-modules",
     "test": "mocha madhatter-test.js"
@@ -29,18 +30,18 @@
   },
   "homepage": "https://github.com/volkovasystems/madhatter#readme",
   "dependencies": {
-    "asea": "^0.11.0",
+    "asea": "^0.13.0",
     "babel-runtime": "^6.23.0",
     "esprima": "^3.1.3",
-    "lire": "^0.6.0",
+    "lire": "^0.7.0",
     "syntax-error": "^1.3.0",
     "unused": "^0.2.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-core": "^6.23.1",
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
     "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-latest": "^6.22.0",
+    "babel-preset-latest": "^6.24.0",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-debug": "^3.1.0",
@@ -48,6 +49,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "source-map-loader": "^0.2.0",
-    "webpack": "^2.2.1"
+    "webpack": "^2.3.2"
   }
 }
