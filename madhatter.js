@@ -113,7 +113,7 @@ const madhatter = function madhatter( script ){
 		let error = check( script );
 
 		if( error ){
-			return new Error( `syntax error, ${ error }` );
+			return new Error( `syntax error, ${ error.stack }` );
 		}
 
 		let unusedVariable = unused( script )
