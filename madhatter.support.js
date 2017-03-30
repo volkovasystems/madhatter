@@ -109,7 +109,7 @@ var madhatter = function madhatter(script) {
 		var error = check(script);
 
 		if (error) {
-			return new Error("syntax error, " + error);
+			return new Error("syntax error, " + error.stack);
 		}
 
 		var unusedVariable = unused(script).
