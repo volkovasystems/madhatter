@@ -83,7 +83,7 @@ const madhatter = function madhatter( script ){
 		@end-meta-configuration
 	*/
 
-	if( asea.client ){
+	if( asea.CLIENT ){
 		try{
 			esprima.parse( script );
 
@@ -93,7 +93,7 @@ const madhatter = function madhatter( script ){
 
 		return false;
 
-	}else if( asea.server ){
+	}else if( asea.SERVER ){
 		if( FILE_PATH_PATTERN.test( script ) ){
 			try{
 				script = lire( script, true );
